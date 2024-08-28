@@ -1,0 +1,14 @@
+- name: Build RCD front-end Runtime image
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Build image
+      docker_image:
+        build:
+          path: ../web
+          dockerfile: container/runtime.Dockerfile
+        name: armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/server
+        tag: latest
+        push: yes
+        source: build

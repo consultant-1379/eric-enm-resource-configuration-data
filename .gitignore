@@ -1,0 +1,14 @@
+*.code-workspace
+*venv
+.vscode
+.history
+node_modules
+package-lock.json
+*.log
+.coverage
+.idea
+.env
+.DS_Store
+eic_tmp/
+data/
+

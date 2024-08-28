@@ -1,0 +1,266 @@
+- version: 24.07
+  value_packs:
+  - name: File Notification and Transfer (FNT)
+    tag: deploy_pushservice
+    description: File Notification and Transfer provides the functionality to push PM STATISTICAL, 3GPP Bulk CM and Product Data files from ENM to the Ericsson hosted destination server.
+    app_enabled: false
+    non_mandatory: true
+    applications:
+      - name: pushservice
+  - name: Site Energy Visualization
+    tag: deploy_sevserv
+    description: Provides the visualization of the power management for site controller nodes
+    app_enabled: false
+    applications:
+      - name: sevserv
+    non_mandatory: true
+- version: 24.03
+  value_packs:
+  - name: External Application Launch Enabler
+    tag: deploy_ext_app_launch_enabler
+    description: External application launch enabler provides a REST interface to allow system administrators to configure URLs for the launch of Web Based external applications from the ENM launcher.
+    app_enabled: false
+    non_mandatory: true
+    applications:
+      - name: ext-app-launch-enabler
+  - name: File Access NBI (FAN)
+    tag: deploy_fileaccess_nbi
+    description: File Access NBI provides an HTTPs interface for Northbound Applications (clients) to request transfer of files which have been exposed by the File Lookup service (FLS).
+    app_enabled: false
+    applications:
+      - name: fileaccessnbi
+    non_mandatory: true
+- version: 23.16
+  value_packs:
+  - name: CBRS Cell Management
+    tag: deploy_dc-history_domainproxy
+    description: Enables the Data Change History Domain Proxy services, which store Configuration Management (CM) topology and network eventsand provide services that can add and remove groups of CBRS cells, list and view details of the managed groups, configure properties of the managed groups and Private Networks
+    app_enabled: true
+    applications:
+      - name: dc-history
+      - name: domainproxy
+    non_mandatory: true
+  - name: CM Events NBI and CM Subscribed Events NBI
+    tag: deploy_cmevents
+    description: Enables the Configuration Management (CM) events service, which provides external systems such as Network Management Systems with access to CM event data. Access is provided using a Machine to Machine interface that is based on notifications about changes to the network
+    app_enabled: true
+    applications:
+      - name: cmevents
+    non_mandatory: true
+  - name: Automatic ID Management
+    tag: deploy_autoidservice
+    description: Enables the autoidservice, a 3GPP SON function supporting the enforcement of uniqueness of Physical Cell Identities (PCI) across cellular topologies in the LTE Radio Access Network
+    app_enabled: true
+    applications:
+      - name: autoidservice
+    non_mandatory: true
+  - name: Fault Management History Service
+    tag: deploy_fmhistory
+    description: Enables the Fault Management History service, which provides the required privileges to view the alarm history and enables actions to be performed on alarms such as ACK, Unack, Clear, and Comment
+    app_enabled: true
+    applications:
+      - name: fmhistory
+    non_mandatory: true
+  - name: 3GPP CORBA Alarm IRP NBI
+    tag: deploy_nbalarmirp
+    description: Enables the nbalarmirp service, which is responsible for the communication between the Network Management System (NMS) and ENM
+    app_enabled: true
+    applications:
+      - name: nbalarmirp
+      - name: nbalarmirp1
+      - name: nbalarmirp2
+    non_mandatory: true
+  - name: North Bound SNMP Interface to NMS
+    tag: deploy_nbfmsnmp
+    description: Enables the Fault Management SNMP NBI service that provides a SNMP interface to Northbound Network Management System (NMS)
+    app_enabled: true
+    applications:
+      - name: nbfmsnmp
+    non_mandatory: true
+  - name: North Bound BNSI Interface to NMS
+    tag: deploy_nbi-bnsi-fm
+    description: Enables the Basic Network Surveillance Interface NBI service, which is responsible for providing Fault Management (FM) capabilities (over ENM) to Northbound Network Management Systems (NMS), according to the BNSI protocol
+    app_enabled: true
+    applications:
+      - name: nbi-bnsi-fm
+    non_mandatory: true
+  - name: ENM Log Export to North Bound Interface
+    tag: deploy_elasticsearch-admin
+    description: Enables the elasticsearch admin service, which is an elasticsearch administrative tool to export the ENM logs to NBI
+    app_enabled: true
+    applications:
+      - name: elasticsearch-admin
+    non_mandatory: true
+  - name: Spectrum Measurement Management
+    tag: deploy_saserv
+    description: Enables the saserv service, which conducts spectrum sampling activities and manages sample files. Spectrum sampling activities include sending capability requests to Network Elements, starting and stopping the sampling of Network Elements, transforming sample files, and managing the retention of sample files
+    app_enabled: true
+    applications:
+      - name: saserv
+    non_mandatory: true
+  - name: Cell Management
+    tag: deploy_cellserv
+    description: This group enables the Cellserv service, which provides services for the configuration and auditing of cells in ENM
+    app_enabled: true
+    applications:
+      - name: cellserv
+    non_mandatory: true
+  - name: Auto Provisioning
+    tag: deploy_apserv_msap
+    description: Enables the Auto Provisioning and msap services. The Auto Provisioning service is responsible for the automated rollout (provisioning, commissioning, and integration) of new nodes into ENM. The msap service is responsible for communication between the Auto Provisioning Service(apserv) and the nodes
+    app_enabled: true
+    applications:
+      - name: apserv
+      - name: msap
+    non_mandatory: true
+  - name: Node Normalization
+    tag: deploy_ipsmserv
+    description: Enables the ipsmserv service. VMs for Services and Mediation - TransportCIM normalization service provides, where applicable, the transformation of a specific node model into a normalized one
+    app_enabled: true
+    applications:
+      - name: ipsmserv
+    non_mandatory: true
+  - name: Node Log Management
+    tag: deploy_msnetlog
+    description: This group enables the msnetlog service, which performs activities needed for one-shot retrieval of network logs on the NEs managed by the ENM system. These logs enable and facilitate troubleshooting of an ENM Operator to investigate network issues
+    app_enabled: true
+    applications:
+      - name: msnetlog
+    non_mandatory: true
+  - name: ENM Network Health Monitor
+    tag: deploy_mskpirt
+    description: Enables the ENM Network Health Monitor service, which provides an up-to-date overview of current network health data, including configuration state data, alarm data, and Key Performance Indicators (KPIs)
+    app_enabled: true
+    applications:
+      - name: mskpirt
+    non_mandatory: true
+  - name: Network Element FM Mediation for CPP Network Elements
+    tag: deploy_msfm
+    description: Enables the MSFM service, which checks communication between the Common Object Request Broker Architecture (CORBA), a Network Element, and the ENM system. When alarm supervision is started, this virtual machine subscribes to the NE for alarms. After a successful subscription, the ENM system starts receiving alarms
+    app_enabled: true
+    applications:
+      - name: msfm
+    non_mandatory: true
+  - name: Network Element SNMP based Configuration Management
+    tag: deploy_mssnmpcm
+    description: Enables the mssnmpcm service, which performs CM activities on Network Elements with SNMP that are managed by the ENM system. These activities include synchronization, adding and deleting Network Elements, subscribing to and handling notifications, and performing CRUD operations
+    app_enabled: true
+    applications:
+      - name: mssnmpcm
+    non_mandatory: true
+  - name: Fault Management Expert
+    tag: deploy_fmx
+    description: Enables the Fault Management Expert service, which provides a rule inference engine for processing distributed event streams used in Automatic Alarm Handling
+    app_enabled: true
+    applications:
+      - name: fmx
+    non_mandatory: true
+- version: 23.15
+  value_packs:
+    - name: AXE node Support (Mediation Winfiol and OPS)
+      tag: WinFIOL_OPS_AXE_Mediation
+      description: Resources required for AXE nodes management contains eric-enmsg-msapgfm, eric-enmsg-mscmapg, eric-enmsg-ops and eric-enmsg-winfiol-sg of eric-enm-stateless-integration
+      app_enabled: true
+      applications:
+        - name: winfiol
+        - name: ops
+        - name: mscmapg
+        - name: msapgfm
+      non_mandatory: true
+- version: 23.11
+  value_packs:
+    - name: Cloud Native ENM Backup and Restore Proxy
+      tag: deploy_cenmproxy
+      description: Cloud Native ENM Backup and Restore Proxy (Cenmproxy) is a proxy application providing secure external communication to ADP Backup and Restore Orchestrator (BRO) from external clients
+      app_enabled: false
+      applications:
+        - name: cenmproxy
+      non_mandatory: true
+- version: 22.14
+  value_packs:
+    - name: Event Based Statistics for MME (EBS-M)
+      tag: value_pack_ebs_m
+      description: Event Based Statistics for MME contains ebs-controller and
+        ebs-flow services with file-based input
+      variant: eric-enm-integration-extra-large-production-values
+      applications:
+        - name: ebscontroller
+        - name: ebsflow
+          replicas: 32
+          update_strategy:
+            maxUnavailable: 3
+      connected_vp:
+        - name: Event Based Statistics for LTE (EBS-L) and NR (EBS-N)
+          applications:
+            - name: ebsflow
+              replicas: 96
+              update_strategy:
+                maxUnavailable: 6
+      jobs:
+        - eric-enm-models-ebs-job
+    - name: Event Based Statistics for LTE (EBS-L) and NR (EBS-N)
+      tag: value_pack_ebs_ln
+      description: Event Based Statistics for LTE and NR contains ebs-controller,
+        ebs-flow and ebs-topology services with file-based input
+      variant: eric-enm-integration-extra-large-production-values
+      applications:
+        - name: ebscontroller
+        - name: ebsflow
+          replicas: 96
+          update_strategy:
+            maxUnavailable: 6
+        - name: ebstopology
+      connected_vp:
+        - name: Event Based Statistics for MME (EBS-M)
+          applications:
+            - name: ebsflow
+              replicas: 32
+              update_strategy:
+                maxUnavailable: 3
+      jobs:
+        - eric-enm-models-ebs-job
+- version: 21.18
+  value_packs:
+    - name: Event Based Statistics for MME (EBS-M)
+      tag: value_pack_ebs_m
+      description: Event Based Statistics for MME contains ebs-controller and
+        ebs-flow services with file-based input
+      variant: eric-enm-integration-extra-large-production-values
+      applications:
+        - name: ebscontroller
+        - name: ebsflow
+          replicas: 24
+          update_strategy:
+            maxUnavailable: 3
+      connected_vp:
+        - name: Event Based Statistics for LTE (EBS-L) and NR (EBS-N)
+          applications:
+            - name: ebsflow
+              replicas: 48
+              update_strategy:
+                maxUnavailable: 6
+      jobs:
+        - eric-enm-models-ebs-job
+- version: 21.16
+  value_packs:
+    - name: Event Based Statistics for LTE (EBS-L) and NR (EBS-N)
+      tag: value_pack_ebs_ln
+      description: Event Based Statistics for LTE and NR contains ebs-controller,
+        ebs-flow and ebs-topology services with file-based input
+      variant: eric-enm-integration-extra-large-production-values
+      applications:
+        - name: ebscontroller
+        - name: ebsflow
+          replicas: 48
+          update_strategy:
+            maxUnavailable: 6
+        - name: ebstopology
+      connected_vp:
+        - name: Event Based Statistics for MME (EBS-M)
+          applications:
+            - name: ebsflow
+              replicas: 24
+              update_strategy:
+                maxUnavailable: 3
+      jobs:
+        - eric-enm-models-ebs-job

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "",
+    "shortName": "",
+    "offering": "EIC",
+    "datapath": "eric-eic-integration-fixed-size-production-values",
+    "versions": [
+      {
+        "name": "2.23.0-122",
+        "file": "2.23.0-122",
+        "targetAudience": "cu"
+      },
+      {
+        "name": "2.23.0-122",
+        "file": "2.23.0-122",
+        "targetAudience": "pdu"
+      }
+    ]
+  }
+]

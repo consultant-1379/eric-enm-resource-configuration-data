@@ -1,0 +1,10 @@
+.vscode
+container
+dist
+docs
+node_modules
+.gitignore
+dev.sh
+jsconfig.json
+README.md
+*.Dockerfile.dockerignore

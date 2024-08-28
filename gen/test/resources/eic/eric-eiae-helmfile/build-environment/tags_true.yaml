@@ -1,0 +1,11 @@
+# A file with all tags set to true to be used for running helmfile commands without passing a state values file
+tags:
+  adc: true
+  dmm: true
+  th: true
+  eas: true
+  appmgr: true
+  ch: true
+  ta: true
+  pmh: true
+  ml: true

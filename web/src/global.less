@@ -1,0 +1,93 @@
+@import "@eds/vanilla/common/normalize";
+
+.theme_mixin() {
+  // @import "@eds/vanilla/common/animations/transitions";
+
+  @import "@eds/vanilla/font/icon-font";
+  @import "@eds/vanilla/font/typography";
+
+  @import "@eds/vanilla/common/grid/flexgrid";
+  @import "@eds/vanilla/common/grid/media-queries";
+
+  @import "@eds/vanilla/common/layout/sysbar";
+  // @import "@eds/vanilla/common/layout/syspanel";
+  // @import "@eds/vanilla/common/layout/settings";
+  @import "@eds/vanilla/common/layout/appbar";
+  @import "@eds/vanilla/common/layout/navigation";
+  @import "@eds/vanilla/common/layout/main";
+  @import "@eds/vanilla/common/layout/tile";
+  // @import "@eds/vanilla/common/layout/footer";
+  @import "@eds/vanilla/common/layout/scrollbar";
+
+  @import "@eds/vanilla/tooltip/tooltip";
+  @import "@eds/vanilla/table/tables";
+  @import "@eds/vanilla/button/button";
+  @import "@eds/vanilla/text-field/text-field";
+  @import "@eds/vanilla/number-field/number-field";
+  @import "@eds/vanilla/tree/tree";
+  @import "@eds/vanilla/select/select";
+  @import "@eds/vanilla/progress-bar/progress-bar";
+  // @import "@eds/vanilla/pill/pill";
+  @import "@eds/vanilla/switch/switch";
+  @import "@eds/vanilla/timeline/timeline";
+  @import "@eds/vanilla/dialog/dialog";
+  @import "@eds/vanilla/checkbox/checkbox";
+
+}
+
+.light {
+  @import (reference) "@eds/vanilla/variables/light";
+  .theme_mixin();
+
+  .sysbar, .syspanel {
+    @import (reference) "@eds/vanilla/variables/dark";
+    .theme_mixin();
+  }
+
+  .table {
+    th.right, td.right {
+      text-align: right;
+    }
+    th.center, td.center {
+      text-align: center;
+    }
+  }
+}
+
+.light .dialog {
+  transition: opacity 0.3s ease;
+  visibility: visible;
+  opacity: 1;
+  & > .content {
+    transition: all 0.3s ease;
+    opacity: 1;
+    display: flex;
+    & > .top {
+      margin-bottom: 16px;
+    }
+    & > .body {
+      padding: 0;
+    }
+  }
+  &.dialog-enter-from,
+  &.dialog-leave-to
+  {
+    opacity: 0;
+  }
+  &.dialog-leave-active .content
+  {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+
+// Fix EDS bug
+.light .sysbar .switch .ball::before, .light .syspanel .switch .ball::before{
+  top: 2px;
+  left: 2px;
+}
+
+.light .tile .header {
+  flex-wrap: wrap;
+}

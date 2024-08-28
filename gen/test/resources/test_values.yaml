@@ -1,0 +1,1908 @@
+elasticsearch-bragent:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 512Mi
+    requests:
+      cpu: 500m
+      memory: 256Mi
+eric-ctrl-bro:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-adp-eric-ctrl-bro-drop
+  persistence:
+    persistentVolumeClaim:
+      size: 1Ti
+      storageClassName: null
+  resources:
+    backupAndRestore:
+      limits:
+        cpu: 4
+        ephemeral-storage: 50Gi
+        memory: 4Gi
+      requests:
+        cpu: 2
+        ephemeral-storage: 500Mi
+        memory: 2Gi
+eric-data-document-database-pg:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-document-database-pg/data
+  persistentVolumeClaim:
+    size: 25Gi
+eric-data-eshistory-search-engine:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-adp-log-released
+  persistence:
+    backup:
+      persistentVolumeClaim:
+        storageClassName: null
+    data:
+      persistentVolumeClaim:
+        storageClassName: null
+    master:
+      persistentVolumeClaim:
+        storageClassName: null
+eric-data-graph-database-nj:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/aia_releases
+  persistentVolumeClaim:
+    backup:
+      storageClass: null
+    logging:
+      storageClass: null
+    storageClass: null
+eric-data-search-engine:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-adp-log-released
+  jvmHeap:
+    data: 2048m
+    ingest: 1024m
+    master: 512m
+  persistence:
+    backup:
+      persistentVolumeClaim:
+        storageClassName: null
+    data:
+      persistentVolumeClaim:
+        storageClassName: null
+    master:
+      persistentVolumeClaim:
+        storageClassName: null
+  resources:
+    data:
+      limits:
+        cpu: 1000m
+        memory: 8Gi
+      requests:
+        cpu: 1000m
+        memory: 8Gi
+    ingest:
+      limits:
+        cpu: 500m
+        memory: 2Gi
+      requests:
+        cpu: 500m
+        memory: 2Gi
+    master:
+      limits:
+        cpu: 500m
+        memory: 2Gi
+      requests:
+        cpu: 500m
+        memory: 2Gi
+eric-data-search-engine-curator:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-adp-log-released
+eric-enm-credm-controller:
+  enabled: true
+eric-enm-fm-alert-parser:
+  enabled: true
+eric-enm-globalproperties:
+  enabled: true
+eric-enm-int-log-transformer:
+  enabled: true
+  eric-log-transformer:
+    enabled: true
+    imageCredentials:
+      repoPath: proj-enm/proj-adp-log-released
+eric-enm-kvstore-hc:
+  enabled: true
+  persistentVolumeClaim:
+    size: 1Gi
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 256Mi
+eric-enm-modeldeployservice:
+  enabled: true
+  resources:
+    modeldeployservice:
+      limits:
+        cpu: 2000m
+        memory: 7662Mi
+      requests:
+        cpu: 600m
+        memory: 7662Mi
+eric-enm-monitoring-master:
+  enabled: true
+  monitoring:
+    autoUpload:
+      account: null
+      ddpsite: null
+      enabled: true
+      password: null
+eric-enm-monitoring-remotewriter:
+  enabled: true
+eric-enm-omnidaemon:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1700m
+    requests:
+      cpu: 567m
+eric-enm-rwxpvc:
+  enabled: true
+eric-enm-serviceroles:
+  enabled: true
+eric-enm-troubleshooting-utils:
+  enabled: true
+eric-enm-version-configmap:
+  enabled: true
+  packageVersion: CXP 904 1414 1.10.0-31 R11A
+  productSet: 21.13.97-1
+  productVersion: 'ENM 21.13 (CSAR Version: 1.10.0-31) AOM 901 151 R1EN'
+  productionDate: '2021-08-19T19:31:15+01:00'
+eric-enmsg-access-control:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 3296Mi
+eric-enmsg-amos:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 20280Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 20280Mi
+eric-enmsg-auto-id-solr:
+  enabled: true
+  persistentVolumeClaim:
+    solrautoidPVSize: 1Gi
+  resources:
+    limits:
+      cpu: 2000m
+      enabled: true
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      enabled: true
+      memory: 4096Mi
+eric-enmsg-autoid-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5644Mi
+eric-enmsg-autoprovisioning:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-cellserv:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-cmevents:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-cmservice:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 3000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 900m
+      memory: 6144Mi
+eric-enmsg-cmutilities:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-com-ecim-mscm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-comecimpolicy:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-dc-history:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 4096Mi
+eric-enmsg-dlms:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 4096Mi
+eric-enmsg-domain-proxy-coordinator:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-dpmediation:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3296Mi
+eric-enmsg-element-manager:
+  enabled: false
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 8192Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 8192Mi
+eric-enmsg-elex:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 500m
+      memory: 2000Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 200m
+      memory: 1000Mi
+eric-enmsg-eventbasedclient:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-flowautomation:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3296Mi
+eric-enmsg-fls:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 2000m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-fm-alarm-processing:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 8192Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 8192Mi
+eric-enmsg-fm-history:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 6144Mi
+eric-enmsg-fm-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 8192Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 8192Mi
+eric-enmsg-general-scripting:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 20280Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 20280Mi
+eric-enmsg-gossiprouter-cache:
+  enabled: true
+  resources:
+    limits:
+      cpu: 950m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 272m
+      memory: 2000Mi
+eric-enmsg-gossiprouter-eap7:
+  enabled: true
+  resources:
+    limits:
+      cpu: 950m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 272m
+      memory: 2000Mi
+eric-enmsg-gossiprouter-remoting:
+  enabled: true
+  resources:
+    limits:
+      cpu: 950m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 272m
+      memory: 2000Mi
+eric-enmsg-identity-mgmt-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-import-export-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-ip-service-management:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 3296Mi
+eric-enmsg-itservices:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1200m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 3596Mi
+eric-enmsg-jmsserver:
+  enabled: true
+  resources:
+    limits:
+      cpu: 8000m
+      memory: 22324Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 2400m
+      memory: 22324Mi
+eric-enmsg-kpi-calc-serv:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 8192Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 7692Mi
+eric-enmsg-kpi-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5644Mi
+eric-enmsg-lcmservice:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 3296Mi
+eric-enmsg-medrouter:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-msap:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-msapgfm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-mscm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-mscmapg:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-mscmip:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 6668Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 6668Mi
+eric-enmsg-msfm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5644Mi
+eric-enmsg-mskpirt:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-msnetlog:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-mspm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-mspmip:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-mssnmpcm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 4320Mi
+eric-enmsg-mssnmpfm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7392Mi
+eric-enmsg-nb-alarm-irp-agent-corba:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 5120Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-nb-fm-snmp:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-nbi-bnsi-fm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-nedo-serv:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-networkexplorer:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 6144Mi
+eric-enmsg-node-plugins:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3296Mi
+eric-enmsg-nodecli:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1250m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 350m
+      memory: 3296Mi
+eric-enmsg-opendj:
+  enabled: true
+eric-enmsg-openidm:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-ops:
+  enabled: false
+  persistentVolumeClaim:
+    size: 1Gi
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3596Mi
+eric-enmsg-pki-ra-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-pmic-router-policy:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4320Mi
+eric-enmsg-pmservice:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 2000m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 6144Mi
+eric-enmsg-sa-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 4096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 4096Mi
+eric-enmsg-security-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 5644Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5344Mi
+eric-enmsg-sentinel:
+  enabled: true
+  persistentVolumeClaim:
+    sentinelPVSize: 1Gi
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3596Mi
+eric-enmsg-shm-core-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 5644Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5344Mi
+eric-enmsg-shmservice:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 5644Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5344Mi
+eric-enmsg-smrs-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 4000m
+      memory: 7692Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 1200m
+      memory: 7362Mi
+eric-enmsg-solr-service:
+  enabled: true
+  persistentVolumeClaim:
+    solrPVSize: 175Gi
+  resources:
+    limits:
+      cpu: 2000m
+      enabled: true
+      memory: 6144Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      enabled: true
+      memory: 6144Mi
+eric-enmsg-sps-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 4620Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 4320Mi
+eric-enmsg-supervisionclient:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 3596Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 3296Mi
+eric-enmsg-uiservice:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 5120Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 5120Mi
+eric-enmsg-vault-service:
+  enabled: true
+  resources:
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      limits:
+        cpu: 2000m
+        memory: 1954Mi
+      memory: 1954Mi
+eric-enmsg-visinaming-nb:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 2048Mi
+eric-enmsg-visinaming-sb:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 2048Mi
+eric-enmsg-web-push-service:
+  enabled: true
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 1000m
+      memory: 5096Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 300m
+      memory: 5096Mi
+eric-enmsg-winfiol-sg:
+  enabled: false
+  resources:
+    httpd:
+      enabled: true
+      limits:
+        cpu: 500m
+        memory: 1000Mi
+      requests:
+        cpu: 250m
+        memory: 400Mi
+    limits:
+      cpu: 2000m
+      memory: 8192Mi
+    monitoring:
+      enabled: true
+      limits:
+        cpu: 200m
+        memory: 300Mi
+      requests:
+        cpu: 50m
+        memory: 200Mi
+    requests:
+      cpu: 600m
+      memory: 7692Mi
+eric-net-ingress-l4:
+  cniMode: null
+  enabled: true
+  fullnameOverride: {}
+  imageCredentials:
+    logshipper:
+      repoPath: proj-enm/proj-bssf/adp-log/release
+  interfaces:
+    external: null
+    internal: null
+  nodeSelector: null
+  podNetworkCIDR: null
+  rbac:
+    create: true
+    serviceAccountName: null
+  resources:
+    limits:
+      cpu: 1000m
+      enabled: true
+      memory: 2048Mi
+    requests:
+      cpu: 300m
+      enabled: true
+      memory: 2048Mi
+  sidecars:
+    eric-enm-http-alarms-forwarder:
+      enabled: true
+    eric-enm-snmp-trap-forwarder:
+      enabled: true
+  tolerations:
+  - effect: NoSchedule
+    key: node
+    operator: Equal
+    value: routing
+  virtualRouterId: 106
+eric-net-ingress-l4-crd:
+  enabled: true
+eric-oss-ingress-controller-nx:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-eric-oss-ingress-ctr-nx-dev
+  ingressClass: ingress-nginx
+  ingressClassResource:
+    enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+    requests:
+      cpu: 600m
+      memory: 2048Mi
+  service:
+    annotations: {}
+    loadBalancerIP: null
+eric-pm-alert-manager:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-adp-pm-alert-manager-drop
+  persistence:
+    persistentVolumeClaim:
+      storageClassName: null
+eric-pm-node-exporter:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj_kds/erikube
+  prometheus:
+    nodeExporter:
+      service:
+        hostPort: null
+        servicePort: null
+eric-pm-server:
+  enabled: true
+  imageCredentials:
+    repoPath: proj-enm/proj-common-assets-cd/monitoring/pm
+  resources:
+    eric-pm-server:
+      limits:
+        cpu: '3'
+        memory: 10Gi
+      requests:
+        cpu: '1'
+        memory: 5Gi
+  server:
+    persistentVolume:
+      size: 25Gi
+      storageClass: null
+eshistory-bragent:
+  enabled: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 512Mi
+    requests:
+      cpu: 500m
+      memory: 256Mi
+global:
+  emailServer: null
+  enmProperties:
+    COM_INF_LDAP_ADMIN_CN: null
+    COM_INF_LDAP_ROOT_SUFFIX: null
+    PKI_EntityProfile_DN_COUNTRY_NAME: null
+    PKI_EntityProfile_DN_ORGANIZATION: null
+    PKI_EntityProfile_DN_ORGANIZATION_UNIT: null
+    certificatesRevListDistributionPointServiceDnsEnable: null
+    certificatesRevListDistributionPointServiceIpv4Enable: null
+    certificatesRevListDistributionPointServiceIpv6Enable: null
+    enm_deployment_type: Small_CloudNative_ENM
+    host_system_identifier: null
+    publicKeyInfraRegAutorithyPublicServerName: null
+  ingress:
+    class: ingress-nginx
+    enmHost: null
+  nodeSelector: null
+  persistentVolumeClaim:
+    storageClass: null
+  pullSecret: null
+  registry:
+    pullSecret: null
+    url: null
+  rwx:
+    storageClass: null
+  sentinelHostname: sentinel-0
+  timezone: null
+  vips:
+    fm_vip_address: null
+    cm_vip_address: null
+    fm_ipv6_address: null
+    cm_IPv6_address: null

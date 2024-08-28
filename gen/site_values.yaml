@@ -1,0 +1,195 @@
+global:
+  hosts:
+    iam: keycloak.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    gas: gas.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    la: la.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    th: th.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    os: os.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    ta: ta.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    adc: adc.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    appmgr: appmgr.b.cnis-idun-n270-services-2.sero.gic.ericsson.se
+    ml: "ml.hall020.rnd.gic.ericsson.se"
+    eic: dummy
+  registry:
+    url: armdocker.rnd.ericsson.se
+    username: cloudman
+    password: manInTheClouds2013
+  support:
+    ipv6:
+      enabled: false
+  timezone: UTC
+  createClusterRoles: true
+
+tags:
+  adc: true
+  dmm: true
+  th: true
+  eas: true
+  ch: true
+  appmgr: true
+  ta: true
+  os: true
+  pmh: true
+  ml: true
+  uds: true
+  teh: false
+  tieh: true
+  sef: true
+  sep: false
+  cs: false
+
+eric-oss-ml-execution-env:
+  credentials:
+    containerRegistry:
+      username: dockeruser
+      password: dockerpassword
+    database:
+      custom:
+        password: modellcmpasswd
+      metrics:
+        password: exporter
+      replica:
+        password: replica
+      super:
+        password: Postgres1#
+    objectStorage:
+      jobUser:
+        password: objectStorageJobUserPassword
+      serviceUser:
+        password: objectStorageServiceUserPassword
+
+eric-cloud-native-base:
+  eric-odca-diagnostic-data-collector:
+    sftpServerHost: dummy_host
+  eric-data-search-engine-curator:
+    cronjob:
+      curator:
+        schedule: 0 */2 * * *
+    actions: ''
+  eric-sec-access-mgmt:
+    accountManager:
+      enabled: false
+      inactivityThreshold: 9999
+    replicaCount: 2
+  eric-ctrl-bro:
+    sftp:
+      username: cloudman
+      password: manInTheClouds2013
+    persistence:
+      persistentVolumeClaim:
+        size: 15Gi
+  eric-log-transformer:
+    egress:
+      syslog:
+        enabled: false
+        remoteHosts: []
+  eric-data-search-engine:
+    service:
+      network:
+        protocol:
+          IPv6: false
+    persistence:
+      data:
+        persistentVolumeClaim:
+          size: 10Gi
+    index_management:
+      job_interval_in_minutes: 10
+      policies: []
+  eric-data-object-storage-mn:
+    brAgent:
+      properties:
+        backup_data_path: bucket1/data1.txt
+    persistentVolumeClaim:
+      size: 75Gi
+  eric-fh-snmp-alarm-provider:
+    sendAlarm: false
+    service:
+      loadBalancerIP: 214.13.245.166
+      annotations:
+        cloudProviderLB: {}
+
+eric-oss-common-base:
+  sessionTokens:
+    maxSessionDurationSecs: 36000
+    maxIdleTimeSecs: 1800
+  service-mesh-ingress-gateway:
+    service:
+      loadBalancerIP: 214.13.245.164
+      annotations:
+        cloudProviderLB: {}
+    externalTrafficPolicy: Cluster
+  eric-oss-ddc:
+    autoUpload:
+      enabled: true
+      ddpid: LMI_CNIS_N270_B
+      account: lmi_CNIS_N270_B@10.44.91.38
+      password: _CNIS_N270_B
+  system-user:
+    credentials:
+      username: system-user
+      password: Ericsson123!
+  gas:
+    defaultUser:
+      username: gas-user
+      password: Ericsson123!
+  eric-eo-usermgmt:
+    replicaCount: 2
+  eric-eo-usermgmt-ui:
+    replicaCount: 2
+
+eric-topology-handling:
+  eric-oss-common-topology-svc:
+    eric-oss-cmn-topology-svc-core:
+      defaultUser:
+        username: cts-user
+        password: Ericsson123!
+
+eric-oss-oran-support:
+  eric-oss-a1-policy-mngmt-svc:
+    defaultUser:
+      username: a1-user
+      password: DefaultP12345!
+
+eric-oss-task-automation-ae:
+  defaultUser:
+    username: fa-user
+    password: Ericsson123!
+
+eric-oss-adc:
+  ingress:
+    tls:
+      secretName: ves-tls-secret
+  eric-oss-sftp-filetrans-ran-2:
+    enabled: true
+    subsystem:
+      name: ProdEngENM
+    dmm:
+      data_catalog:
+        message_bus_namespace: oss-deploy
+        data_service:
+          data_service_instance:
+            consumed_data_provider: ProdEngENM
+          datatype:
+            schema_name: ran
+    spring:
+      kafka:
+        topics:
+          enm_id: ProdEngENM
+    sftp:
+      topic_bucket_backward_compatible: false
+
+eric-oss-ericsson-adaptation:
+  eric-oss-ran-topology-adapter:
+    rtaUser:
+      username: rta-user
+      password: Ericsson123!
+
+eric-oss-config-handling:
+  cps-user:
+    credentials:
+      username: cps-user
+      password: Ericsson123!
+  dmi-user:
+    credentials:
+      username: dmi-user
+      password: Ericsson123!

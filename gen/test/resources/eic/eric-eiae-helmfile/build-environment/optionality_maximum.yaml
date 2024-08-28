@@ -1,0 +1,104 @@
+optionality:
+  eric-cloud-native-base:
+    eric-cm-mediator:
+      enabled: false
+    eric-ctrl-bro:
+      enabled: true
+    eric-data-coordinator-zk:
+      enabled: false
+    eric-data-distributed-coordinator-ed:
+      enabled: false
+    eric-data-document-database-pg:
+      enabled: false
+    eric-data-message-bus-kf:
+      enabled: false
+    eric-data-object-storage-mn:
+      enabled: true
+    eric-data-search-engine:
+      enabled: true
+    eric-data-search-engine-curator:
+      enabled: true
+    eric-dst-agent:
+      enabled: false
+    eric-dst-collector:
+      enabled: false
+    eric-fh-alarm-handler:
+      enabled: false
+    eric-fh-alarm-handler-db-pg:
+      enabled: false
+    eric-fh-snmp-alarm-provider:
+      enabled: false
+    eric-lm-combined-server:
+      enabled: false
+    eric-lm-combined-server-db-pg:
+      enabled: false
+    eric-log-shipper:
+      enabled: true
+    eric-log-transformer:
+      enabled: true
+    eric-odca-diagnostic-data-collector:
+      enabled: false
+    eric-pm-server:
+      enabled: true
+    eric-sec-access-mgmt:
+      enabled: true
+    eric-sec-access-mgmt-db-pg:
+      enabled: true
+    eric-sec-certm:
+      enabled: false
+    eric-sec-key-management:
+      enabled: false
+    eric-sec-sip-tls:
+      enabled: false
+    eric-tm-ingress-controller-cr:
+      enabled: false
+  eric-oss-common-base:
+    eric-adp-gui-aggregator-service:
+      enabled: true
+    eric-dst-query:
+      enabled: false
+    eric-eo-api-gateway:
+      enabled: true
+    eric-eo-common-br-agent:
+      enabled: false
+    eric-eo-credential-manager:
+      enabled: false
+    eric-eo-eai:
+      enabled: false
+    eric-eo-eai-database-pg:
+      enabled: false
+    eric-eo-ecmsol005-adapter:
+      enabled: false
+    eric-eo-onboarding:
+      enabled: false
+    eric-eo-subsystem-management:
+      enabled: false
+    eric-eo-subsystem-management-database-pg:
+      enabled: false
+    eric-eo-subsystemsmgmt-ui:
+      enabled: false
+    eric-eo-usermgmt:
+      enabled: true
+    eric-eo-usermgmt-ui:
+      enabled: true
+    eric-oss-common-postgres:
+      enabled: true
+    eric-oss-dmaap:
+      enabled: false
+    eric-oss-notification-service:
+      enabled: false
+    eric-oss-notification-service-database-pg:
+      enabled: false
+  eric-oss-dmm:
+    eric-dmm-common-db:
+      enabled: false
+    eric-oss-data-catalog:
+      enabled: false
+    eric-oss-dmm-data-coordinator-zk:
+      enabled: true
+    eric-oss-dmm-data-message-bus-kf:
+      enabled: true
+    eric-oss-dmm-dmaap:
+      enabled: false
+    eric-schema-registry-sr:
+      enabled: false

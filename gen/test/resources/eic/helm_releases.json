@@ -1,0 +1,21 @@
+{
+    "eric-oss-app-mgr": {
+        "name": "eric-oss-app-mgr",
+        "version": "1.97.0",
+        "chart": "eric-oss-drop/eric-oss-app-mgr",
+        "labels": {
+            "csar": "eric-oss-app-mgr"
+        },
+        "installed": true,
+        "condition": null,
+        "namespace": "eric-app-ns",
+        "values": [
+            "./values-templates/global-values.yaml.gotmpl",
+            "./values-templates/release-optionality-values.yaml.gotmpl",
+            "./default-values/state-dependent-values.yaml.gotmpl",
+            "./values-templates/eric-oss-app-mgr-site-values.yaml.gotmpl",
+            "./values-templates/release-site-values.yaml.gotmpl"
+        ],
+        "url": "http://localhost:5005"
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "total": {
+        "pods": 1,
+        "rwo": -1,
+        "rwx": -1,
+        "config_maps": 1,
+        "secrets": 1,
+        "services": 1,
+        "ingresses": -1,
+        "eric_ingresses": -1
+    },
+    "sum": {
+        "rwo": -25,
+        "rwx": -20
+    },
+    "requests": {
+        "wl_cpu": 11,
+        "wl_mem": 22,
+        "wl_disk": 8001,
+        "wlds_cpu": 1,
+        "wlds_mem": 1,
+        "wlds_disk": 2000,
+        "wl_jobs_cpu": -2,
+        "wl_jobs_mem": 0,
+        "wl_jobs_disk": -900
+    },
+    "limits": {
+        "wl_cpu": 15,
+        "wl_mem": 28,
+        "wl_disk": 8001,
+        "wlds_cpu": 1,
+        "wlds_mem": 1,
+        "wlds_disk": 2000,
+        "wl_jobs_cpu": -2,
+        "wl_jobs_mem": -4,
+        "wl_jobs_disk": -900
+    },
+    "max": {
+        "replica_count": 0,
+        "cpu_req": 1000,
+        "cpu_lim": 1000,
+        "mem_req": 1500,
+        "mem_lim": 0,
+        "eps_req": 1000,
+        "eps_lim": 999
+    },
+    "min": {
+        "worker_nodes": 0,
+        "worker_cpu": 2,
+        "worker_mem": 1,
+        "worker_disk": 2999,
+        "hot_spare_workers": 0
+    },
+    "client": {
+        "docker": "20.10.6-ce",
+        "helm": "3.6.0",
+        "kubectl": "1.21.1",
+        "cpu": "2vCPU",
+        "memory": "8 GiB",
+        "ports": 7001,
+        "disk": "200 GiB",
+        "python": 3.6,
+        "screen": "",
+        "unzip": ""
+    },
+    "cluster": {
+        "kubernetes": ""
+    },
+    "registry": {
+        "disk_storage_space": "200 GiB",
+        "ports": "80, 443"
+    },
+    "bur": {
+        "storage_requirement_full_backups": -1,
+        "storage_requirement_full_backups_compressed": -100,
+        "storage_requirement_rollbacks": -2,
+        "storage_requirement_rollbacks_compressed": -1,
+        "bro_pvc_storage_requirement": -1,
+        "external_storage_requirement": -1,
+        "number_of_full_backups_on_external_storage": -2,
+        "number_of_full_backups_on_bro_pvc": -2,
+        "number_of_rollbacks_on_bro_pvc": -1
+    },
+    "other_requirements": {
+        "ips": 2,
+        "pids": 10240
+    }
+}

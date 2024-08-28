@@ -1,0 +1,690 @@
+{
+  "workloads": [
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-node-exporter",
+      "kind": "DaemonSet",
+      "sg": "",
+      "replicas": -1,
+      "containers": [
+        {
+          "name": "eric-pm-node-exporter-eric-pm-node-exporter",
+          "image": "node-exporter:v0.18.1",
+          "cpu_req": 100.0,
+          "cpu_lim": 200.0,
+          "mem_req": 100.0,
+          "mem_lim": 150.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [],
+      "affinity": "N/A",
+      "update_strategy": {
+        "rollingUpdate": {
+          "maxUnavailable": 1
+        },
+        "type": "RollingUpdate"
+      },
+      "pdb": "N/A",
+      "cpu_req": 100.0,
+      "cpu_lim": 200.0,
+      "mem_req": 100.0,
+      "mem_lim": 150.0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "remotewriter",
+      "kind": "Deployment",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "remotewriter",
+          "image": "eric-enm-monitoring-remotewriter:1.14.0-22",
+          "cpu_req": 2000.0,
+          "cpu_lim": 0,
+          "mem_req": 6144.0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [],
+      "affinity": "N/A",
+      "update_strategy": {
+        "type": "RollingUpdate",
+        "rollingUpdate": {
+          "maxSurge": 1,
+          "maxUnavailable": 0
+        }
+      },
+      "pdb": "N/A",
+      "cpu_req": 2000.0,
+      "cpu_lim": 0,
+      "mem_req": 6144.0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm",
+      "kind": "Deployment",
+      "sg": "mscm",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "mscm",
+          "image": "eric-enmsg-mscm:1.14.2-1",
+          "cpu_req": 1200.0,
+          "cpu_lim": 4000.0,
+          "mem_req": 7392.0,
+          "mem_lim": 7692.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        },
+        {
+          "name": "mscm-monitoring",
+          "image": "eric-enm-monitoring-eap7:1.14.2-1",
+          "cpu_req": 50.0,
+          "cpu_lim": 200.0,
+          "mem_req": 200.0,
+          "mem_lim": 300.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-enm-rwxpvc-data",
+        "eric-enm-rwxpvc-mdt",
+        "eric-enm-rwxpvc-custom",
+        "eric-enm-rwxpvc-hcdumps",
+        "eric-enm-rwxpvc-norollback",
+        "eric-enm-rwxpvc-configmgt",
+        "eric-enm-rwxpvc-upgind",
+        "eric-enm-rwxpvc-pmlinks",
+        "eric-enm-rwxpvc-pm1",
+        "eric-enm-rwxpvc-pm2",
+        "eric-enm-rwxpvc-batch"
+      ],
+      "affinity": "hard pod anti affinity: {'app': 'mscm'}",
+      "update_strategy": {
+        "rollingUpdate": {
+          "maxSurge": 0,
+          "maxUnavailable": 1
+        },
+        "type": "RollingUpdate"
+      },
+      "pdb": {
+        "type": "maxUnavailable",
+        "value": 1
+      },
+      "cpu_req": 1250.0,
+      "cpu_lim": 4200.0,
+      "mem_req": 7592.0,
+      "mem_lim": 7992.0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-alert-manager",
+      "kind": "StatefulSet",
+      "sg": "",
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "eric-pm-alert-manager",
+          "image": "eric-pm-alert-manager:1.1.0-6",
+          "cpu_req": 100.0,
+          "cpu_lim": 250.0,
+          "mem_req": 512.0,
+          "mem_lim": 1024.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-pm-alert-manager-storage-eric-pm-alert-manager"
+      ],
+      "affinity": "soft pod anti affinity: {'app': 'eric-pm-alert-manager'} with weight 100",
+      "update_strategy": {
+        "type": "RollingUpdate",
+        "rollingUpdate": {
+          "partition": 0
+        }
+      },
+      "pdb": {
+        "type": "maxUnavailable",
+        "value": 1
+      },
+      "cpu_req": 100.0,
+      "cpu_lim": 250.0,
+      "mem_req": 512.0,
+      "mem_lim": 1024.0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-server",
+      "kind": "StatefulSet",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-pm-server",
+          "image": "eric-pm-server:6.1.0-59",
+          "cpu_req": 1000.0,
+          "cpu_lim": 3000.0,
+          "mem_req": 5120.0,
+          "mem_lim": 10240.0,
+          "eps_req": 1.0,
+          "eps_lim": 2.0
+        },
+        {
+          "name": "eric-pm-configmap-reload",
+          "image": "eric-pm-configmap-reload:6.1.0-59",
+          "cpu_req": 100.0,
+          "cpu_lim": 200.0,
+          "mem_req": 8.0,
+          "mem_lim": 32.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        },
+        {
+          "name": "eric-pm-exporter",
+          "image": "eric-pm-exporter:6.1.0-59",
+          "cpu_req": 100.0,
+          "cpu_lim": 200.0,
+          "mem_req": 8.0,
+          "mem_lim": 32.0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "storage-volume-eric-pm-server"
+      ],
+      "affinity": "N/A",
+      "update_strategy": {
+        "type": "RollingUpdate"
+      },
+      "pdb": {
+        "type": "minAvailable",
+        "value": 0
+      },
+      "cpu_req": 1200.0,
+      "cpu_lim": 3400.0,
+      "mem_req": 5136.0,
+      "mem_lim": 10304.0,
+      "eps_req": 1.0,
+      "eps_lim": 2.0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm-credm-controller-certrequest-job",
+      "kind": "Job",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "mscm-credm-controller-certrequest",
+          "image": "enm-certrequestjob-container:1.0.0-13",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-models-nrm-job",
+      "kind": "Job",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-enm-models-nrm",
+          "image": "eric-enm-models-nrm:1.14.2-1",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-monitoring-master-delta",
+      "kind": "CronJob",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-enm-monitoring-master-delta",
+          "image": "eric-enm-monitoring-master:1.14.0-22",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-enm-monitoring-master-ddcdata"
+      ],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-monitoring-master-start",
+      "kind": "CronJob",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-enm-monitoring-master-start",
+          "image": "eric-enm-monitoring-master:1.14.0-22",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-enm-monitoring-master-ddcdata"
+      ],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-monitoring-master-stop",
+      "kind": "CronJob",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-enm-monitoring-master-stop",
+          "image": "eric-enm-monitoring-master:1.14.0-22",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-enm-monitoring-master-ddcdata"
+      ],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-monitoring-master-trigger",
+      "kind": "CronJob",
+      "sg": "",
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "eric-enm-monitoring-master-trigger",
+          "image": "eric-enm-monitoring-master:1.14.0-22",
+          "cpu_req": 0,
+          "cpu_lim": 0,
+          "mem_req": 0,
+          "mem_lim": 0,
+          "eps_req": 0,
+          "eps_lim": 0
+        }
+      ],
+      "pvcs": [
+        "eric-enm-monitoring-master-ddcdata"
+      ],
+      "affinity": "N/A",
+      "update_strategy": null,
+      "pdb": "N/A",
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0,
+      "app_enabled": true
+    }
+  ],
+  "pvcs": [
+    {
+      "chart": "monitoring",
+      "name": "eric-enm-monitoring-master-ddcdata",
+      "type": "RWX",
+      "storageClass": "",
+      "appName": "",
+      "instances": 1,
+      "size": 50.0,
+      "app_enabled": true,
+      "total": 50.0,
+      "fullBackup": "",
+      "rollback": ""
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-alert-manager-storage-eric-pm-alert-manager",
+      "type": "RWO",
+      "storageClass": "",
+      "appName": "",
+      "instances": 3,
+      "size": 2.0,
+      "app_enabled": true,
+      "total": 6.0,
+      "fullBackup": "",
+      "rollback": ""
+    },
+    {
+      "chart": "monitoring",
+      "name": "storage-volume-eric-pm-server",
+      "type": "RWO",
+      "storageClass": "",
+      "appName": "",
+      "instances": 1,
+      "size": 25.0,
+      "app_enabled": true,
+      "total": 25.0,
+      "fullBackup": "",
+      "rollback": ""
+    }
+  ],
+  "config_maps": [
+    {
+      "chart": "monitoring",
+      "name": "gpmscm",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-alert-manager",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-server-logshipper-cfg",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-server",
+      "app_enabled": true
+    }
+  ],
+  "secrets": [
+    {
+      "chart": "monitoring",
+      "name": "monitoring-upload-secret",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm-certreq-secret-1",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm-tls-secret-1",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm-tls-secret-2",
+      "app_enabled": true
+    }
+  ],
+  "services": [
+    {
+      "chart": "monitoring",
+      "name": "remotewriter",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "mscm",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-alert-manager",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-alert-manager-headless",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-node-exporter",
+      "app_enabled": true
+    },
+    {
+      "chart": "monitoring",
+      "name": "eric-pm-server",
+      "app_enabled": true
+    }
+  ],
+  "ingresses": [
+    {
+      "chart": "monitoring",
+      "name": "remotewriter",
+      "app_enabled": true
+    }
+  ],
+  "eric_ingresses": [
+    {
+      "chart": "monitoring",
+      "name": "mscm",
+      "app_enabled": true
+    }
+  ],
+  "overview": {
+    "total": {
+      "pods": 0,
+      "rwo": 0,
+      "rwx": 0
+    },
+    "sum": {
+      "rwo": 0,
+      "rwx": 0
+    },
+    "requests": {
+      "wl_cpu": 0,
+      "wl_mem": 0,
+      "wl_disk": 0,
+      "wlds_cpu": 0,
+      "wlds_mem": 0,
+      "wlds_disk": 0,
+      "wl_jobs_cpu": 0,
+      "wl_jobs_mem": 0,
+      "wl_jobs_disk": 0
+    },
+    "limits": {
+      "wl_cpu": 0,
+      "wl_mem": 0,
+      "wl_disk": 0,
+      "wlds_cpu": 0,
+      "wlds_mem": 0,
+      "wlds_disk": 0,
+      "wl_jobs_cpu": 0,
+      "wl_jobs_mem": 0,
+      "wl_jobs_disk": 0
+    },
+    "max": {
+      "replica_count": 0,
+      "cpu_req": 0,
+      "cpu_lim": 0,
+      "mem_req": 0,
+      "mem_lim": 0,
+      "eps_req": 0,
+      "eps_lim": 0
+    },
+    "min": {
+      "worker_nodes": 0,
+      "worker_cpu": 0,
+      "worker_mem": 0,
+      "worker_disk": 0,
+      "hot_spare_workers": 1
+    },
+    "client": {
+      "docker": "20.10.6-ce",
+      "helm": "3.6.0",
+      "kubectl": "1.21.1",
+      "cpu": "2vCPU",
+      "memory": "8 GiB",
+      "ports": 7001,
+      "disk": "200 GiB",
+      "python": 3.6,
+      "screen": null,
+      "unzip": null
+    },
+    "cluster": {
+      "kubernetes": "1.21.1"
+    },
+    "registry": {
+      "disk_storage_space": "200 GiB",
+      "ports": "80, 443"
+    },
+    "bur": {
+      "storage_requirement_full_backups": 0,
+      "storage_requirement_full_backups_compressed": 0,
+      "storage_requirement_rollbacks": 0,
+      "storage_requirement_rollbacks_compressed": 0,
+      "bro_pvc_storage_requirement": 0,
+      "external_storage_requirement": 0,
+      "number_of_full_backups_on_external_storage": 4,
+      "number_of_full_backups_on_bro_pvc": 2,
+      "number_of_rollbacks_on_bro_pvc": 1
+    },
+    "other_requirements": {
+      "ips": 0,
+      "pids": 10240,
+      "ipv6s": 0,
+      "load_balancers": 0,
+      "supported_ip_versions": []
+    }
+  },
+  "optional_value_packs": [],
+  "validation_errors": {
+    "monitoring": {
+      "eric-pm-node-exporter": [
+        "Node selector is not defined."
+      ],
+      "remotewriter": [
+        "Update strategy rollingUpdate maxUnavailable should be set to 1.",
+        "Update strategy rollingUpdate maxSurge should be set to 0.",
+        "No resource limits are specified for container."
+      ],
+      "mscm": [
+        "No Replica value set."
+      ],
+      "eric-pm-alert-manager": [
+        "Soft anti-affinity cannot be set for small deployment if replicas is <= 3."
+      ],
+      "eric-pm-server": [
+        "Update strategy rollingUpdate partition not set. It should be set to 0."
+      ],
+      "mscm-credm-controller-certrequest": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ],
+      "eric-enm-models-nrm": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ],
+      "eric-enm-monitoring-master-delta": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ],
+      "eric-enm-monitoring-master-start": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ],
+      "eric-enm-monitoring-master-stop": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ],
+      "eric-enm-monitoring-master-trigger": [
+        "No resource requests are specified for container.",
+        "No resource limits are specified for container."
+      ]
+    }
+  },
+  "csar": {
+    "images": [
+      "armdocker.rnd.ericsson.se/proj-enm/eric-enmsg-sa-service:1.14.0-23"
+    ],
+    "total_images_size": 28970658816
+  }
+}

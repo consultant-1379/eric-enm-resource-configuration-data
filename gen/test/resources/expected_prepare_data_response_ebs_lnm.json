@@ -1,0 +1,1274 @@
+{
+    "config_maps": [
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-alert-manager",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "gpebstopology",
+        "app_enabled": true
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-server-logshipper-cfg",
+        "app_enabled": true
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-server",
+        "app_enabled": true
+      }
+    ],
+    "secrets": [
+      {
+        "chart": "monitoring",
+        "name": "monitoring-upload-secret",
+        "app_enabled": true
+      },
+      {
+        "chart": "monitoring",
+        "name": "monitoring-upload-secret2",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "eric-enm-credm-controller-tls-secret-1",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "eric-enm-credm-controller-tls-secret-2",
+        "app_enabled": true
+      }
+    ],
+    "services": [
+      {
+        "chart": "monitoring",
+        "name": "fmalertparser",
+        "app_enabled": true
+      },
+      {
+        "chart": "monitoring",
+        "name": "remotewriter",
+        "app_enabled": true
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-alert-manager",
+        "app_enabled": true
+      }
+    ],
+    "ingresses": [
+      {
+        "chart": "stateless",
+        "name": "websps",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "ebscontroller",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "accesscontrol",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "amos",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "amos-ws",
+        "app_enabled": true
+      }
+    ],
+    "eric_ingresses": [
+      {
+        "chart": "stateless",
+        "name": "amos",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "amos-0",
+        "app_enabled": true
+      },
+      {
+        "chart": "stateless",
+        "name": "amos-1",
+        "app_enabled": true
+      }
+    ],
+    "overview": {
+      "total": {
+        "pods": 45,
+        "rwo": 4,
+        "rwx": 2,
+        "config_maps": 4,
+        "secrets": 4,
+        "services": 3,
+        "ingresses": 5,
+        "eric_ingresses": 3
+      },
+      "sum": {
+        "rwo": 31.0,
+        "rwx": 70.0
+      },
+      "requests": {
+        "wl_cpu": 41800,
+        "wl_mem": 227440.0,
+        "wl_disk": 8002.44140625,
+        "wlds_cpu": 1100,
+        "wlds_mem": 1100.0,
+        "wlds_disk": 2000,
+        "wl_jobs_cpu": 100,
+        "wl_jobs_mem": 100,
+        "wl_jobs_disk": 100.48828125
+      },
+      "limits": {
+        "wl_cpu": 108258,
+        "wl_mem": 258084.0,
+        "wl_disk": 8005.0,
+        "wlds_cpu": 1200,
+        "wlds_mem": 1150.0,
+        "wlds_disk": 2000,
+        "wl_jobs_cpu": 50,
+        "wl_jobs_mem": 50,
+        "wl_jobs_disk": 101.0
+      },
+      "max": {
+        "replica_count": 0,
+        "cpu_req": 2500,
+        "cpu_lim": 5700,
+        "mem_req": 15784.0,
+        "mem_lim": 16184.0,
+        "eps_req": 1000,
+        "eps_lim": 1000
+      },
+      "min": {
+        "worker_nodes": 4,
+        "worker_cpu": 7,
+        "worker_mem": 17,
+        "worker_disk": 3000,
+        "hot_spare_workers": 1
+      },
+      "client": {
+        "docker": "20.10.6-ce",
+        "helm": "3.6.0",
+        "kubectl": "1.21.1",
+        "cpu": "2vCPU",
+        "memory": "8 GiB",
+        "ports": 7001,
+        "disk": "200 GiB",
+        "python": 3.6,
+        "screen": null,
+        "unzip": null
+      },
+      "cluster": {
+        "kubernetes": "1.21.1"
+      },
+      "registry": {
+        "disk_storage_space": "200 GiB",
+        "ports": "80, 443"
+      },
+      "bur": {
+        "storage_requirement_full_backups": 3198,
+        "storage_requirement_full_backups_compressed": 1599,
+        "storage_requirement_rollbacks": 686,
+        "storage_requirement_rollbacks_compressed": 343,
+        "bro_pvc_storage_requirement": 3541,
+        "external_storage_requirement": 6396,
+        "number_of_full_backups_on_external_storage": 4,
+        "number_of_full_backups_on_bro_pvc": 2,
+        "number_of_rollbacks_on_bro_pvc": 1
+      },
+      "other_requirements": {
+        "ips": 2,
+        "pids": 10240,
+        "ipv6s": 2,
+        "load_balancers": 1
+      }
+    },
+    "optional_value_packs": [
+      {
+        "name": "AXE node Support (Mediation Winfiol and OPS)",
+        "tag": "WinFIOL_OPS_AXE_Mediation",
+        "description": "WinFIOL OPS AXE Mediation",
+        "applications": [
+          {
+            "name": "winfiol"
+          },
+          {
+            "name": "ops"
+          },
+          {
+            "name": "mscmapg"
+          },
+          {
+            "name": "msapgfm"
+          }
+        ],
+        "app_enabled": true
+      },
+      {
+        "name": "Event Based Statistics for LTE (EBS-L) and MME (EBS-N)",
+        "tag": "value_pack_ebs_ln",
+        "description": "Event Based Statistics for LTE and NR contains ebs-controller, ebs-flow and ebs-topology services",
+        "variant": "eric-enm-integration-extra-large-production-values",
+        "applications": [
+          {
+            "name": "ebscontroller"
+          },
+          {
+            "name": "ebsflow",
+            "replicas": 4,
+            "update_strategy": {
+              "maxUnavailable": 3
+            }
+          },
+          {
+            "name": "ebstopology"
+          }
+        ],
+        "connected_vp": [
+          {
+            "name": "Event Based Statistics for MME (EBS-M)",
+            "applications": [
+              {
+                "name": "ebsflow",
+                "replicas": 2,
+                "update_strategy": {
+                  "maxUnavailable": 2
+                }
+              }
+            ]
+          }
+        ],
+        "jobs": [
+          "eric-enm-models-ebs-job"
+        ],
+        "app_enabled": false
+      },
+      {
+        "name": "Event Based Statistics for MME (EBS-M)",
+        "tag": "value_pack_ebs_m",
+        "description": "Event Based Statistics for MME contains ebs-controller, ebs-flow and ebs-topology services",
+        "variant": "eric-enm-integration-extra-large-production-values",
+        "applications": [
+          {
+            "name": "ebscontroller"
+          },
+          {
+            "name": "ebsflow",
+            "replicas": 2,
+            "update_strategy": {
+              "maxUnavailable": 2
+            }
+          }
+        ],
+        "connected_vp": [
+          {
+            "name": "Event Based Statistics for LTE (EBS-L) and MME (EBS-N)",
+            "applications": [
+              {
+                "name": "ebsflow",
+                "replicas": 4,
+                "update_strategy": {
+                  "maxUnavailable": 3
+                }
+              }
+            ]
+          }
+        ],
+        "jobs": [
+          "eric-enm-models-ebs-job"
+        ],
+        "app_enabled": false
+      }
+    ],
+    "validation_errors": [
+      {
+        "id": 1,
+        "name": "remotewriter",
+        "chart": "eric-enm-monitoring-integration",
+        "error": "No resource limits are specified for container.",
+        "app_enabled": true
+      },
+      {
+        "id": 2,
+        "name": "eric-enm-hcdumpscleanup-job",
+        "chart": "eric-enm-pre-deploy-integration",
+        "error": "No Replica value set.",
+        "app_enabled": true
+      },
+      {
+        "id": 3,
+        "name": "domainproxy-httpd",
+        "chart": "eric-enm-stateless-integration",
+        "error": "No resource requests are specified for container.<br>No resource limits are specified for container.",
+        "app_enabled": true
+      },
+      {
+        "id": 4,
+        "name": "neo4j-replica",
+        "chart": "eric-enm-infra-integration",
+        "error": "Node selector is not defined.",
+        "app_enabled": true
+      },
+      {
+        "id": 5,
+        "name": "brocli",
+        "chart": "eric-enm-bro-integration",
+        "error": "Update strategy rollingUpdate not set.",
+        "app_enabled": true
+      }
+    ],
+    "csar": {
+      "images": [
+        {
+          "prefix": "armdocker.rnd.ericsson.se/proj-enm/",
+          "name": "eric-enmsg-dpmediation",
+          "tag": "1.15.0-30",
+          "app_enabled": true,
+          "id": 0
+        },
+        {
+          "prefix": "armdocker.rnd.ericsson.se/proj-adp-log-released/",
+          "name": "eric-data-search-engine-pm-metrics",
+          "tag": "7.0.0-25",
+          "app_enabled": true,
+          "id": 1
+        },
+        {
+          "prefix": "armdocker.rnd.ericsson.se/proj-enm/",
+          "name": "eric-enmsg-general-scripting-httpd",
+          "tag": "1.15.0-31",
+          "app_enabled": true,
+          "id": 2
+        }
+      ],
+      "total_images_size": 29972504576
+    },
+    "selectedVariant": "eric-enm-integration-production-values",
+    "pvcs": [
+      {
+        "chart": "monitoring",
+        "name": "eric-enm-monitoring-master-ddcdata",
+        "type": "RWX",
+        "storageClass": "",
+        "appName": "",
+        "instances": 1,
+        "size": 50.0,
+        "app_enabled": true,
+        "total": 50.0,
+        "fullBackup": "",
+        "rollback": "",
+        "id": 0
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-alert-manager-storage-eric-pm-alert-manager",
+        "type": "RWO",
+        "storageClass": "",
+        "appName": "",
+        "instances": 3,
+        "size": 2.0,
+        "app_enabled": true,
+        "total": 6.0,
+        "fullBackup": "",
+        "rollback": "",
+        "id": 1
+      },
+      {
+        "chart": "monitoring",
+        "name": "storage-volume-eric-pm-server",
+        "type": "RWO",
+        "storageClass": "",
+        "appName": "",
+        "instances": 1,
+        "size": 25.0,
+        "app_enabled": true,
+        "total": 25.0,
+        "fullBackup": "",
+        "rollback": "",
+        "id": 2
+      },
+      {
+        "chart": "pre-deploy",
+        "name": "eric-enm-rwxpvc-data",
+        "type": "RWX",
+        "storageClass": "",
+        "appName": "",
+        "instances": 1,
+        "size": 20.0,
+        "app_enabled": true,
+        "total": 20.0,
+        "fullBackup": "\u2713",
+        "rollback": "\u2713",
+        "id": 3
+      }
+    ],
+    "workloads": [
+      {
+        "chart": "stateless",
+        "name": "mscm-credm-controller-certrequest-job",
+        "kind": "Job",
+        "sg": "",
+        "replicas": 1,
+        "containers": [
+          {
+            "name": "mscm-credm-controller-certrequest",
+            "image": "enm-certrequestjob-container:1.0.0-13",
+            "cpu_req": 100,
+            "cpu_lim": 50,
+            "mem_req": 100,
+            "mem_lim": 50,
+            "eps_req": 100,
+            "eps_lim": 100
+          }
+        ],
+        "pvcs": [],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 100,
+        "cpu_lim": 50,
+        "mem_req": 100,
+        "mem_lim": 50,
+        "eps_req": 100,
+        "eps_lim": 100,
+        "app_enabled": true,
+        "id": 0,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "cmserv",
+        "kind": "Deployment",
+        "sg": "cmservice",
+        "replicas": 8,
+        "containers": [
+          {
+            "name": "cmserv",
+            "image": "eric-enmsg-cmservice:1.15.0-30",
+            "cpu_req": 2200,
+            "cpu_lim": 4000,
+            "mem_req": 6144.0,
+            "mem_lim": 7144.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "cmserv-monitoring",
+            "image": "eric-enm-monitoring-eap7:1.15.0-28",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "cmserv-httpd",
+            "image": "eric-enmsg-cmservice-httpd:1.15.0-30",
+            "cpu_req": 250,
+            "cpu_lim": 500,
+            "mem_req": 400.0,
+            "mem_lim": 1000.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-configmgt"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'cmserv'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 2500,
+        "cpu_lim": 5700,
+        "mem_req": 8244.0,
+        "mem_lim": 8444.0,
+        "eps_req": 1000,
+        "eps_lim": 1000,
+        "app_enabled": true,
+        "id": 1,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "lcmserv",
+        "kind": "Deployment",
+        "sg": "lcmservice",
+        "replicas": 2,
+        "containers": [
+          {
+            "name": "lcmserv",
+            "image": "eric-enmsg-lcmservice:1.15.0-30",
+            "cpu_req": 600,
+            "cpu_lim": 2000,
+            "mem_req": 3296.0,
+            "mem_lim": 3596.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "lcmserv-monitoring",
+            "image": "eric-enm-monitoring-eap7:1.15.0-28",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "lcmserv-httpd",
+            "image": "eric-enmsg-lcmservice-httpd:1.15.0-30",
+            "cpu_req": 250,
+            "cpu_lim": 500,
+            "mem_req": 400.0,
+            "mem_lim": 1000.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-hcdumps"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'lcmserv'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 900,
+        "cpu_lim": 2700,
+        "mem_req": 3896.0,
+        "mem_lim": 4896.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 2,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-enm-monitoring-master-delta",
+        "kind": "CronJob",
+        "sg": "",
+        "replicas": 1,
+        "containers": [
+          {
+            "name": "eric-enm-monitoring-master-delta",
+            "image": "eric-enm-monitoring-master:1.15.0-30",
+            "cpu_req": 0,
+            "cpu_lim": 0,
+            "mem_req": 0,
+            "mem_lim": 0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-monitoring-master-ddcdata"
+        ],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 0,
+        "cpu_lim": 0,
+        "mem_req": 0,
+        "mem_lim": 0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 3,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-enm-monitoring-master-start",
+        "kind": "CronJob",
+        "sg": "",
+        "replicas": 1,
+        "containers": [
+          {
+            "name": "eric-enm-monitoring-master-start",
+            "image": "eric-enm-monitoring-master:1.15.0-30",
+            "cpu_req": 0,
+            "cpu_lim": 0,
+            "mem_req": 0,
+            "mem_lim": 0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-monitoring-master-ddcdata"
+        ],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 0,
+        "cpu_lim": 0,
+        "mem_req": 0,
+        "mem_lim": 0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 4,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-node-exporter",
+        "kind": "DaemonSet",
+        "sg": "",
+        "replicas": -1,
+        "containers": [
+          {
+            "name": "eric-pm-node-exporter-eric-pm-node-exporter",
+            "image": "node-exporter:v0.18.1",
+            "cpu_req": 100,
+            "cpu_lim": 200,
+            "mem_req": 100.0,
+            "mem_lim": 150.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 1100,
+        "cpu_lim": 1200,
+        "mem_req": 1100.0,
+        "mem_lim": 1150.0,
+        "eps_req": 2000,
+        "eps_lim": 2000,
+        "app_enabled": true,
+        "id": 5,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "fmalertparser",
+        "kind": "Deployment",
+        "sg": "",
+        "replicas": 2,
+        "containers": [
+          {
+            "name": "fmalertparser",
+            "image": "eric-enm-fm-alert-parser:1.0.0-17",
+            "cpu_req": 100,
+            "cpu_lim": 450,
+            "mem_req": 50.0,
+            "mem_lim": 250.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [],
+        "affinity": "hard pod anti affinity: {'app': 'fmalertparser'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 100,
+        "cpu_lim": 450,
+        "mem_req": 50.0,
+        "mem_lim": 250.0,
+        "eps_req": 0.48828125,
+        "eps_lim": 1.0,
+        "app_enabled": true,
+        "id": 6,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebscontroller",
+        "kind": "Deployment",
+        "sg": "",
+        "replicas": 2,
+        "containers": [
+          {
+            "name": "ebscontroller",
+            "image": "eric-enmsg-ebs-controller:1.2.7-1",
+            "cpu_req": 600,
+            "cpu_lim": 2000,
+            "mem_req": 3296.0,
+            "mem_lim": 3596.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebscontroller-monitoring",
+            "image": "eric-enm-monitoring-eap6:1.17.7-1",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebscontroller-httpd",
+            "image": "eric-enmsg-counter-management-httpd:1.2.7-1",
+            "cpu_req": 250,
+            "cpu_lim": 500,
+            "mem_req": 400.0,
+            "mem_lim": 1000.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-hcdumps",
+          "eric-enm-rwxpvc-mdt"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'ebscontroller'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 900,
+        "cpu_lim": 2700,
+        "mem_req": 3896.0,
+        "mem_lim": 4896.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 7,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebsflow",
+        "kind": "Deployment",
+        "sg": "ebsflow",
+        "replicas": 6,
+        "containers": [
+          {
+            "name": "ebsflow",
+            "image": "eric-enmsg-ebs-flow:1.2.7-1",
+            "cpu_req": 400,
+            "cpu_lim": 1334,
+            "mem_req": 3247.0,
+            "mem_lim": 3414.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebsflow-monitoring",
+            "image": "eric-enm-monitoring-jre:1.14.7-1",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-mdt",
+          "eric-enm-rwxpvc-pmlinks"
+        ],
+        "affinity": null,
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 5
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 5
+        },
+        "cpu_req": 450,
+        "cpu_lim": 1534,
+        "mem_req": 3447.0,
+        "mem_lim": 3714.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 8,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebstopology",
+        "kind": "Deployment",
+        "sg": "ebstopology",
+        "replicas": 3,
+        "containers": [
+          {
+            "name": "ebstopology",
+            "image": "eric-enmsg-ebs-topology:1.2.7-1",
+            "cpu_req": 1200,
+            "cpu_lim": 4000,
+            "mem_req": 15584.0,
+            "mem_lim": 15884.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebstopology-monitoring",
+            "image": "eric-enm-monitoring-eap7:1.17.7-1",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-pmlinks",
+          "eric-enm-rwxpvc-hcdumps",
+          "eric-enm-rwxpvc-mdt"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'ebstopology'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 1250,
+        "cpu_lim": 4200,
+        "mem_req": 15784.0,
+        "mem_lim": 16184.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 9,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "infra",
+        "name": "eric-enm-models-ebs-job",
+        "kind": "Job",
+        "sg": "",
+        "replicas": 1,
+        "containers": [
+          {
+            "name": "eric-enm-models-ebs",
+            "image": "eric-enm-models-ebs:1.1.0-15",
+            "cpu_req": 0,
+            "cpu_lim": 0,
+            "mem_req": 0,
+            "mem_lim": 0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-mdt"
+        ],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 0,
+        "cpu_lim": 0,
+        "mem_req": 0,
+        "mem_lim": 0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 10,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-alert-manager",
+        "kind": "StatefulSet",
+        "sg": "",
+        "replicas": 3,
+        "containers": [
+          {
+            "name": "eric-pm-alert-manager",
+            "image": "eric-pm-alert-manager:1.1.0-6",
+            "cpu_req": 100,
+            "cpu_lim": 250,
+            "mem_req": 512.0,
+            "mem_lim": 1024.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-pm-alert-manager-storage-eric-pm-alert-manager"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'eric-pm-alert-manager'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 100,
+        "cpu_lim": 250,
+        "mem_req": 512.0,
+        "mem_lim": 1024.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 11,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "monitoring",
+        "name": "eric-pm-server",
+        "kind": "StatefulSet",
+        "sg": "",
+        "replicas": 3,
+        "containers": [
+          {
+            "name": "eric-pm-server",
+            "image": "eric-pm-server:6.1.0-59",
+            "cpu_req": 1000,
+            "cpu_lim": 3000,
+            "mem_req": 5120.0,
+            "mem_lim": 10240.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "eric-pm-configmap-reload",
+            "image": "eric-pm-configmap-reload:6.1.0-59",
+            "cpu_req": 100,
+            "cpu_lim": 200,
+            "mem_req": 8.0,
+            "mem_lim": 32.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "eric-pm-exporter",
+            "image": "eric-pm-exporter:6.1.0-59",
+            "cpu_req": 100,
+            "cpu_lim": 200,
+            "mem_req": 8.0,
+            "mem_lim": 32.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "storage-volume-eric-pm-server"
+        ],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": {
+          "type": "minAvailable",
+          "value": 0
+        },
+        "cpu_req": 1200,
+        "cpu_lim": 3400,
+        "mem_req": 5136.0,
+        "mem_lim": 10304.0,
+        "eps_req": 0.48828125,
+        "eps_lim": 1.0,
+        "app_enabled": true,
+        "id": 12,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "pre-deploy",
+        "name": "eric-enm-symlink-creation-job",
+        "kind": "Job",
+        "sg": "",
+        "replicas": 1,
+        "containers": [
+          {
+            "name": "eric-enm-symlink-creation",
+            "image": "eric-enm-sles-base:1.15.0-30",
+            "cpu_req": 0,
+            "cpu_lim": 0,
+            "mem_req": 0,
+            "mem_lim": 0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data"
+        ],
+        "affinity": "N/A",
+        "update_strategy": null,
+        "pdb": "N/A",
+        "cpu_req": 0,
+        "cpu_lim": 0,
+        "mem_req": 0,
+        "mem_lim": 0,
+        "eps_req": 0.48828125,
+        "eps_lim": 1.0,
+        "app_enabled": true,
+        "id": 13,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebscontroller",
+        "kind": "Deployment",
+        "sg": "",
+        "replicas": 2,
+        "containers": [
+          {
+            "name": "ebscontroller",
+            "image": "eric-enmsg-ebs-controller:1.5.0-18",
+            "cpu_req": 600,
+            "cpu_lim": 2000,
+            "mem_req": 3296.0,
+            "mem_lim": 3596.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebscontroller-monitoring",
+            "image": "eric-enm-monitoring-eap6:1.20.0-18",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebscontroller-httpd",
+            "image": "eric-enmsg-counter-management-httpd:1.5.0-18",
+            "cpu_req": 250,
+            "cpu_lim": 500,
+            "mem_req": 400.0,
+            "mem_lim": 1000.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-hcdumps",
+          "eric-enm-rwxpvc-mdt"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'ebscontroller'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 900,
+        "cpu_lim": 2700,
+        "mem_req": 3896.0,
+        "mem_lim": 4896.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 14,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebsflow",
+        "kind": "Deployment",
+        "sg": "ebsflow",
+        "replicas": 6,
+        "containers": [
+          {
+            "name": "ebsflow",
+            "image": "eric-enmsg-ebs-flow:1.5.0-19",
+            "cpu_req": 400,
+            "cpu_lim": 1334,
+            "mem_req": 3247.0,
+            "mem_lim": 3414.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebsflow-monitoring",
+            "image": "eric-enm-monitoring-jre:1.17.0-18",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-mdt",
+          "eric-enm-rwxpvc-pmlinks"
+        ],
+        "affinity": null,
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 5
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 5
+        },
+        "cpu_req": 450,
+        "cpu_lim": 1534,
+        "mem_req": 3447.0,
+        "mem_lim": 3714.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 15,
+        "expanded": false,
+        "hover": false
+      },
+      {
+        "chart": "stateless",
+        "name": "ebstopology",
+        "kind": "Deployment",
+        "sg": "ebstopology",
+        "replicas": 3,
+        "containers": [
+          {
+            "name": "ebstopology",
+            "image": "eric-enmsg-ebs-topology:1.5.0-18",
+            "cpu_req": 1200,
+            "cpu_lim": 4000,
+            "mem_req": 15584.0,
+            "mem_lim": 15884.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          },
+          {
+            "name": "ebstopology-monitoring",
+            "image": "eric-enm-monitoring-eap7:1.20.0-19",
+            "cpu_req": 50,
+            "cpu_lim": 200,
+            "mem_req": 200.0,
+            "mem_lim": 300.0,
+            "eps_req": 0,
+            "eps_lim": 0
+          }
+        ],
+        "pvcs": [
+          "eric-enm-rwxpvc-data",
+          "eric-enm-rwxpvc-pm1",
+          "eric-enm-rwxpvc-pm2",
+          "eric-enm-rwxpvc-pmlinks",
+          "eric-enm-rwxpvc-hcdumps",
+          "eric-enm-rwxpvc-mdt"
+        ],
+        "affinity": "hard pod anti affinity: {'app': 'ebstopology'}",
+        "update_strategy": {
+          "rollingUpdate": {
+            "maxSurge": 0,
+            "maxUnavailable": 1
+          },
+          "type": "RollingUpdate"
+        },
+        "pdb": {
+          "type": "maxUnavailable",
+          "value": 1
+        },
+        "cpu_req": 1050,
+        "cpu_lim": 1200,
+        "mem_req": 10784.0,
+        "mem_lim": 11184.0,
+        "eps_req": 0,
+        "eps_lim": 0,
+        "app_enabled": true,
+        "id": 16,
+        "expanded": false,
+        "hover": false
+      }
+    ],
+    "calc": {
+      "cpu": 7,
+      "mem": 17,
+      "disk": 3000,
+      "node_count": 1
+    }
+  }

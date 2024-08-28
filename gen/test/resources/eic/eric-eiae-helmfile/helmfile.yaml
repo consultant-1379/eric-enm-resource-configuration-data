@@ -1,0 +1,8 @@
+releases:
+  - name: eric-oss-app-mgr
+    namespace: {{ .Values | get "helmfile.app.namespace" "eric-app-ns" }}
+    chart: {{ .Values | get "repository" "eric-oss-drop" }}/eric-oss-app-mgr
+    version: 1.97.0
+    installed: {{ .Values | get "tags.appmgr" false }}
+    labels:
+      csar: eric-oss-app-mgr

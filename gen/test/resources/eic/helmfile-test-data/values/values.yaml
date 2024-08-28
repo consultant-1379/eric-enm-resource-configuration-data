@@ -1,0 +1,6 @@
+replicaCount: 3
+image:
+  repository: myapp-repo
+  tag: v1.0.0
+service:
+  port: 8080

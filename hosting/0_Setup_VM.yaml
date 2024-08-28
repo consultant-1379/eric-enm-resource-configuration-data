@@ -1,0 +1,29 @@
+- name: Setup RCD VM
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install the latest version of Docker
+      yum:
+        name: docker-ce
+        state: latest
+
+    - name: Install docker SDK for python
+      pip:
+        name: docker
+
+    - name: Enable FirewallD service and ensure it is enabled and not masked
+      systemd:
+        name: firewalld
+        state: started
+        enabled: yes
+        masked: no
+
+    - name: Permit traffic in default zone for https service
+      firewalld:
+        service: "{{ item }}"
+        permanent: yes
+        immediate: yes
+        state: enabled
+      loop:
+        - http
+        - https

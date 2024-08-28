@@ -1,0 +1,72 @@
+backupsOnExternalStorage: 4
+backupsOnBroPvc: 2
+rollbacksOnBroPvc: 1
+pvcs:
+  eric-enm-rwxpvc-alarmsync:
+    rollback: true
+    pvcDataRatio: 0.2
+    compressionRatio: 6.5
+  eric-enm-rwxpvc-amos:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 17
+  eric-enm-rwxpvc-batch:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 1
+  eric-enm-rwxpvc-configmgt:
+    rollback: false
+    pvcDataRatio: 0.4
+    compressionRatio: 34
+  eric-enm-rwxpvc-cron:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 17
+  eric-enm-rwxpvc-home:
+    rollback: false
+    pvcDataRatio: 0.5
+    compressionRatio: 1
+  eric-enm-rwxpvc-data:
+    rollback: true
+    pvcDataRatio: 0.2
+    compressionRatio: 8.5
+  eric-enm-rwxpvc-mdt:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 1
+  eric-enm-rwxpvc-sentinel:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 2
+  eric-enm-rwxpvc-smrs:
+    rollback: false
+    pvcDataRatio: 0.7
+    compressionRatio: 1
+  eric-enm-kvstore-hc-kvstore:
+    rollback: true
+    pvcDataRatio: 0.2
+    compressionRatio: 1
+  eric-enmsg-opendj-opendj:
+    rollback: true
+    pvcDataRatio: 0.4
+    compressionRatio: 7
+  eric-enm-omnidaemon:
+    rollback: false
+    pvcDataRatio: 0.2
+    compressionRatio: 1
+  neo4j-pvc-data-neo4j:
+    rollback: true
+    pvcDataRatio: 0.3
+    compressionRatio: 4
+  pg-data-postgres:
+    rollback: true
+    pvcDataRatio: 0.2
+    compressionRatio: 4.5
+  storage-elasticsearch-data:
+    rollback: false
+    pvcDataRatio: 0.6
+    compressionRatio: 1.5
+  storage-eshistory-data:
+    rollback: true
+    pvcDataRatio: 0.2
+    compressionRatio: 1.3

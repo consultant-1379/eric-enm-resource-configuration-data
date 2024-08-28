@@ -1,0 +1,11 @@
+output_folder: test/resources/data
+
+variants:
+  - name: Small Cloud Native ENM
+    short_name: Small cENM
+    offering: cENM
+    id: eric-enm-integration-production-values
+  - name: Extra-Large Cloud Native ENM
+    short_name: Extra-Large cENM
+    offering: cENM
+    id: eric-enm-integration-extra-large-production-values

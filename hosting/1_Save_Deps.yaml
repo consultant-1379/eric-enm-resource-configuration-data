@@ -1,0 +1,31 @@
+- name: Build RCD front-end Base image
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Build Base image and save to artifactory
+      docker_image:
+        build:
+          path: ../web
+          dockerfile: container/base.Dockerfile
+        name: armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/base
+        tag: latest
+        push: yes
+        source: build
+
+    - name: Save NGINX image to artifactory
+      docker_image:
+        name: nginx:1.21.1-alpine
+        repository: armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/nginx
+        push: yes
+        source: pull
+
+    - name: Build Testrunner image and save to artifactory
+      docker_image:
+        build:
+          path: ../web
+          dockerfile: container/testrunner.Dockerfile
+        name: armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/testrunner
+        tag: latest
+        push: yes
+        source: build

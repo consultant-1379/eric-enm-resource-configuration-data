@@ -1,0 +1,63 @@
+{
+    "deployment_type": "eric-enm-integration-production-values",
+    "application_version": "21.14.84",
+    "cpu": {
+        "requests": 25.9,
+        "limits": 62.85
+    },
+    "cpu_daemon_set": {
+        "requests": 1.1,
+        "limits": 1.2
+    },
+    "cpu_jobs": {
+        "requests": 0.1,
+        "limits": 0.05
+    },
+    "memory": {
+        "requests": 88.66,
+        "limits": 109.21
+    },
+    "memory_daemon_set": {
+        "requests": 1.07,
+        "limits": 1.12
+    },
+    "memory_jobs": {
+        "requests": 0.1,
+        "limits": 0.05
+    },
+    "ephemeral": {
+        "requests": 8003,
+        "limits": 8005
+    },
+    "ephemeral_daemon_set": {
+        "requests": 2000,
+        "limits": 2000
+    },
+    "ephemeral_jobs": {
+        "requests": 101,
+        "limits": 101
+    },
+    "total_storage_rwo": 31,
+    "total_storage_rwx": 70,
+    "client_minimum_storage": 200,
+    "minimum": {
+        "worker_nodes": 4,
+        "worker_cpu": 5.7,
+        "worker_memory": 10.06,
+        "worker_ephemeral_storage": 1000
+    },
+    "external_networks": {
+        "type": "dual",
+        "vips_ipv4": 1,
+        "vips_ipv6": 1,
+        "load_balancers": 1
+    },
+    "total_application_images_size": 27.91,
+    "total_registry_size": 200,
+    "available_optional_apps": [
+        "AXE node Support (Mediation Winfiol and OPS)",
+        "Event Based Statistics for LTE (EBS-L) and MME (EBS-N)",
+        "Event Based Statistics for MME (EBS-M)"
+    ],
+    "enabled_optional_apps": []
+}

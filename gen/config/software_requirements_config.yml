@@ -1,0 +1,54 @@
+23.02.1:
+  cluster:
+    kubernetes: "not_set"
+  client:
+    docker: "not_set"
+    helm: "not_set"
+    kubectl: "not_set"
+    python: "not_set"
+    screen: "not_set"
+    unzip: "not_set"
+
+
+22.15.1:
+  cluster:
+    kubernetes: 1.23.6
+  client:
+    docker: 20.10.14
+    helm: 3.8.1
+    kubectl: 1.23.6
+
+22.09.1:
+  cluster:
+    kubernetes: 1.23.3
+  client:
+    helm: 3.7.2
+    kubectl: 1.23.3
+
+22.04.83:
+  cluster:
+    kubernetes: 1.22.4
+  client:
+    docker: 20.10.9
+    helm: 3.7.1
+    kubectl: 1.22.4
+
+# 21.13.18 is the base set of requirements and as we build newer versions
+# values can be overridden by adding new versions to this config file.
+21.13.18:
+  cluster:
+    kubernetes: 1.21.1
+  client:
+    docker: 20.10.6-ce
+    helm: 3.6.0
+    kubectl: 1.21.1
+    cpu: 2vCPU
+    memory: "8 GiB"
+    ports: 7001
+    disk: "200 GiB"
+    python: 3.6
+    screen:
+    unzip:
+  registry:
+    disk_storage_space: "200 GiB"
+    ports: "80, 443"

@@ -1,0 +1,19 @@
+- version: 21.13
+  requirements:
+    pids: 10240
+- version: 22.16
+  requirements:
+    supported_ip_versions:
+      - name: IPv4
+        alias: ipv4
+      - name: Dual Stack
+        alias: dual
+- version: 23.03
+  requirements:
+    supported_ip_versions:
+      - name: IPv4
+        alias: ipv4
+      - name: IPv6 EXT
+        alias: ipv6
+      - name: Dual Stack
+        alias: dual

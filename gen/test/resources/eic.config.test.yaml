@@ -1,0 +1,7 @@
+output_folder: gen/test/resources/eic_data
+
+variants:
+  - name: Standard Size Commercial Deployment EIC
+    short_name: Standard-Size EIC
+    offering: EIC
+    id: eric-eic-integration-fixed-size-production-values

@@ -1,0 +1,61 @@
+#!/usr/bin/env groovy
+
+pipeline {
+  agent {
+    label 'CENM_RHEL7_GE_e2e_33'
+  }
+  environment {
+    fe_test_image = 'armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/testrunner'
+    unit_test_image = 'armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/unit_test_runner'
+    fe_test_image_tag = '1.5.1'
+    unit_test_image_tag = '1.3.3'
+  }
+  stages {
+    stage('Pull front end testrunner image') {
+      steps {
+        sh 'docker pull $fe_test_image:$fe_test_image_tag'
+      }
+    }
+    stage('Run front end tests') {
+      steps {
+        sh 'docker run -t --rm -v $(pwd)/web/:/webmount -v $(pwd)/test/data/:/testdatamount -v $(pwd)/gen/:/genmount -e FORCE_COLOR=0 $fe_test_image:$fe_test_image_tag'
+      }
+    }
+    stage('Python pylint test') {
+      steps {
+        script {
+          sh "echo 'Preparing venv ...' ; \
+              source /home/enmadm100/37env/bin/activate; \
+              python3 -m pip install --upgrade pip ; \
+              pip3 install -r ${WORKSPACE}/gen/requirements.txt; \
+              pip3 install pylint ; \
+              deactivate"
+
+          sh "source /home/enmadm100/37env/bin/activate; \
+              echo 'Starting coding standards check.' ; \
+              python3 -m pylint --fail-under=9.7 -ry ${WORKSPACE}/gen --ignore=test > coding_standard_errors_RCD.txt ; \
+              echo 'File coding_standard_errors_RCD.txt' ; \
+              deactivate"
+          archiveArtifacts "coding_standard_errors_RCD.txt"
+        }
+      }
+    }
+    stage('Pull python unit testrunner image') {
+      steps {
+        sh 'docker pull $unit_test_image:$unit_test_image_tag'
+      }
+    }
+    stage('Python unit tests for RCD Generator') {
+      steps {
+        script {
+          sh '''
+            echo 'Run unit tests'
+            pytest_args="--cov=/workspace/gen/ --cov-report=term-missing --cov-fail-under=97 -p no:cacheprovider"
+            chmod 777 ${WORKSPACE}/gen/test/container/run_unit_tests.sh
+            docker run --entrypoint /workspace/gen/test/container/run_unit_tests.sh --rm -v ${WORKSPACE}/gen/:/workspace/gen/ -v ${WORKSPACE}/test/data/:/workspace/test/data/ $unit_test_image:$unit_test_image_tag ${pytest_args}
+          '''
+        }
+      }
+    }
+  }
+}

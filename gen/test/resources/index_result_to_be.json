@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Small Cloud Native ENM",
+    "shortName": "Small cENM",
+    "offering": "cENM",
+    "datapath": "eric-enm-integration-production-values",
+    "versions": [
+      {
+        "name": "21.13.18",
+        "file": "21.13.18",
+        "targetAudience": "pdu"
+      },
+      {
+        "name": "R1EK",
+        "file": "21.10.90",
+        "targetAudience": "cu"
+      },
+      {
+        "name": "21.10.90 (R1EK)",
+        "file": "21.10.90",
+        "targetAudience": "pdu"
+      },
+      {
+        "name": "R1EH IP2",
+        "file": "21.08.18",
+        "targetAudience": "cu"
+      },
+      {
+        "name": "21.08.18 (R1EH IP2)",
+        "file": "21.08.18",
+        "targetAudience": "pdu"
+      }
+    ]
+  },
+  {
+    "name": "Extra-Large Cloud Native ENM",
+    "shortName": "Extra-Large cENM",
+    "offering": "cENM",
+    "datapath": "eric-enm-integration-extra-large-production-values",
+    "versions": [
+      {
+        "name": "21.13.18",
+        "file": "21.13.18",
+        "targetAudience": "pdu"
+      },
+      {
+        "name": "R1EK",
+        "file": "21.10.90",
+        "targetAudience": "cu"
+      },
+      {
+        "name": "21.10.90 (R1EK)",
+        "file": "21.10.90",
+        "targetAudience": "pdu"
+      },
+      {
+        "name": "R1EH IP2",
+        "file": "21.08.18",
+        "targetAudience": "cu"
+      },
+      {
+        "name": "21.08.18 (R1EH IP2)",
+        "file": "21.08.18",
+        "targetAudience": "pdu"
+      }
+    ]
+  }
+]

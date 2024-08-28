@@ -1,0 +1,38 @@
+#!/usr/bin/env groovy
+
+pipeline{
+       agent {
+            node{
+                  label 'INT_Cloud_Native'
+            }
+        }
+    parameters {
+        string(defaultValue: "cENM", description: 'Product name ex. cENM or EIC', name: 'product')
+        string(defaultValue: "", description: 'Product set number for ex. 21.18.74', name: 'product_set')
+    }
+    stages{
+        stage('Add new Product set to RCD') {
+            steps {
+                sh '''
+                request_data="{\\"product\\":\\"$product\\", \\"productset\\":\\"$product_set\\"}"
+                response=$(curl -H "Authorization: Basic eC1hdXRoLXRva2Vu==" -k -H "Content-Type: application/json" -X POST -d "${request_data}" https://resourceconfigurationdata.internal.ericsson.com:5000/addreleaseproductset)
+                if [[ $response != *"Success"* ]]; then
+                  exit 1
+                fi;
+                '''
+            }
+        }
+    }
+    post{
+        success{
+            mail to: 'PDLTORDEPL@pdl.internal.ericsson.com',
+                    subject: "Success: RCD API Call with RELEASE PRODUCT: ${product} and PRODUCT SET: ${product_set}",
+                    body: "Made a RCD API call with RELEASE PRODUCT: ${product} and PRODUCT SET : ${product_set} \n ${BUILD_URL}"
+        }
+        failure {
+            mail to: 'PDLTORDEPL@pdl.internal.ericsson.com',
+                    subject: "Failed: RCD API Call with RELEASE PRODUCT: ${product} PRODUCT SET: ${product_set}",
+                    body: "Made a RCD API call with RELEASE PRODUCT: ${product} PRODUCT SET : ${product_set} \n ${BUILD_URL}"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "rcd-web",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --port 5001",
+    "build": "vite build --clearScreen=false",
+    "tests-srv": "vite preview --port 5001 --clearScreen=false",
+    "tests-run-external": "playwright test -c test/ui_external/ --reporter=line --max-failures=3",
+    "tests-run-internal": "playwright test -c test/ui_internal/ --reporter=line --max-failures=3"
+  },
+  "dependencies": {
+    "@eds/vanilla": "^3.9.0",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.33.0",
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "less": "^4.1.1",
+    "vite": "^2.1.5"
+  }
+}

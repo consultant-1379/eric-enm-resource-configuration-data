@@ -1,0 +1,65 @@
+- name: Deploy RCD front-end
+  hosts: all
+  become: yes
+  tasks:
+    # - name: Copy data
+    #   synchronize:
+    #     src: "../data/"
+    #     dest: "/srv/rcd-data/"
+    #     recursive: yes
+    #     archive: False
+    #     checksum: yes
+
+    - name: Create RCD data directory if it does not exist
+      file:
+        path: /rcd/data
+        state: directory
+
+    - name: Start container
+      docker_container:
+        name: rcdfe
+        image: armdocker.rnd.ericsson.se/proj-eric-enm-resource-configuration-data/server:latest
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          - /rcd/data:/srv/rcd-fe/data:ro
+        restart_policy: always
+
+    - name: Copy sample config if it does not exist
+      copy:
+        src: ../config.sample.yaml
+        dest: /rcd/config.yaml
+        force: no
+
+    - name: Copy data generator src
+      synchronize:
+        src: "../gen/"
+        dest: "/rcd/gen/"
+        recursive: yes
+        archive: False
+        checksum: yes
+        rsync_opts:
+          - "--exclude=__pycache__"
+          - "--exclude=.vscode"
+
+    - name: Install data generator requirements
+      pip:
+        requirements: /rcd/gen/requirements.txt
+
+    - name: Install helm 1
+      unarchive:
+        src: https://get.helm.sh/helm-v3.4.0-linux-amd64.tar.gz
+        dest: /tmp
+        remote_src: yes
+      register: helm
+
+    - name: Install helm 2
+      when: helm.changed
+      copy:
+        src: /tmp/linux-amd64/helm
+        remote_src: yes
+        dest: /usr/local/bin/
+        mode: 755
+
+
